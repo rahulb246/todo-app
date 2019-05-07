@@ -1,5 +1,5 @@
 const path = require('path');
-const nodeExternals = const('webpack-node-externals');
+const nodeExternals = require('webpack-node-externals');
 
 const client = {
   entry: {
