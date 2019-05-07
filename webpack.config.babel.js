@@ -51,4 +51,5 @@ const server = {
   },
 };
 
-export default [client, server];
+exports.client = client;
+exports.server = server;
