@@ -17,28 +17,6 @@ class AuthService {
     
   }
 
-  loginLocal(username, password, history) {
-    
-    request
-    .post(Constants.LOGIN_URL_LOCAL)
-    .send({username: username, password: password})
-    .end( (err, res) => {
-        if(err || !res.ok){
-            if(res.body.message) {
-                AlertActions.displayMessage('warning', res.body.message);
-            }
-            else{
-                AlertActions.displayMessage('error', 'Can not login user at this time. Server might be down.');                                                
-            }
-        }
-        else{
-          LoginActions.loginUser(res.body.token);
-          history.push('/');
-          AlertActions.displayMessage('success', res.body.message);
-        }
-    });            
-  }
-
   loginGoogle(history) {
     
     hello('google').login({ scope: 'email' }).then(function() {
@@ -53,13 +31,7 @@ class AuthService {
       .send({socialtoken: socialtoken})
       .end( (err, res) => {
           if(err || !res.ok){
-              if(res) {
-                if(res.body)
-                  AlertActions.displayMessage('warning', res.body.message);
-              }
-              else{
-                  AlertActions.displayMessage('error', 'Can not login user at this time. Server might be down.');                                                
-              }
+                  AlertActions.displayMessage('error', 'Can not login user at this time. Server might be down.'); 
           }
           else{
             LoginActions.loginUser(res.body.token);
