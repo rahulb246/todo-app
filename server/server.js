@@ -13,7 +13,16 @@ var path = require('path');
 var session = require('express-session');
 
 //Setup database
-mongoose.connect(APP_CONFIG.dbLocation);
+//mongoose.connect(APP_CONFIG.dbLocation);
+mongoose.connect(APP_CONFIG.dbLocation.toString(), 
+    {useNewUrlParser: true },function(err){
+    {
+        if(err) {
+            console.log('Some problem with the connection ' +err);
+        } else {
+            console.log('The Mongoose connection is ready');
+        }
+    }})
 var db = mongoose.connection;
 
 //Set routes
