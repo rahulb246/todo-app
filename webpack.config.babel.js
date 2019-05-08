@@ -51,5 +51,7 @@ const server = {
   },
 };
 
-exports.client = client;
-exports.server = server;
+module.exports = {
+  client: client,
+  server: server
+}
