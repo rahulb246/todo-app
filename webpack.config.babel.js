@@ -1,7 +1,7 @@
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');
 
-const client = {
+module.exports = {
   entry: {
     js: './client/app-client.js',
   },
@@ -22,7 +22,7 @@ const client = {
   },
 };
 
-const server = {
+module.exports = {
   target: 'node',
   node: {
     __dirname: false,
@@ -50,8 +50,3 @@ const server = {
     ],
   },
 };
-
-module.exports = {
-  client: client,
-  server: server
-}
