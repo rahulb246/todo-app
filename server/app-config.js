@@ -1,7 +1,7 @@
 var config = {
   
     siteTitle: "OAuth App",
-    dbLocation: "mongodb://localhost/oauth-app",
+    dbLocation: "mongodb+srv://user:<password>@cluster0-zailc.mongodb.net/test?retryWrites=true",
   
     googleConfig: {
       appID: "256484107452-8gj6m3blt5p1imomu80kiaalc3pq5s4s.apps.googleusercontent.com",
