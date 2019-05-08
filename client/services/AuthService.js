@@ -54,7 +54,7 @@ class AuthService {
       .end( (err, res) => {
           if(err || !res.ok){
               if(res) {
-                if(res.body.message)
+                if(res.body)
                   AlertActions.displayMessage('warning', res.body.message);
               }
               else{
