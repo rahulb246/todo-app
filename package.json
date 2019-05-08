@@ -4,9 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node server/server.js", 
+    "start": "npm run build:dev && node server/server.js", 
     "build:dev": "webpack -d",
-    "heroku-prebuild": "npm install --dev && npm run build:dev"
+    "heroku-prebuild": "npm install --dev"
   },
   "author": "",
   "license": "ISC",
