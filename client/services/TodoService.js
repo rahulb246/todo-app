@@ -19,7 +19,7 @@ class TodoService {
     .send({"Authorization":LoginStore._jwt})
     .end( (err, res) => {
         if(err || !res.ok){
-            if(res.body.message) { AlertActions.displayMessage('warning', res.body.message); }
+            if(res.body) { AlertActions.displayMessage('warning', res.body.message); }
             else{ AlertActions.displayMessage('error', 'Can not fetch todos at this time. Server might be down.');}
             return;
         }
@@ -33,7 +33,7 @@ class TodoService {
           .end( (err, res) => {
               if(err || !res.ok){
                   if(res) { 
-                    if(res.body.message) AlertActions.displayMessage('warning', res.body.message); 
+                    if(res.body) AlertActions.displayMessage('warning', res.body.message); 
                   }
                   else{ AlertActions.displayMessage('error', 'Can not fetch todos at this time. Server might be down.'); }
                   return;
@@ -62,7 +62,7 @@ class TodoService {
     .end( (err, res) => {
         if(err || !res.ok){
             if(res) { 
-              if(res.body.message) AlertActions.displayMessage('warning', res.body.message); 
+              if(res.body) AlertActions.displayMessage('warning', res.body.message); 
             }
             else{ AlertActions.displayMessage('error', 'Can not toggle todo at this time. Server might be down.');}
             return;
@@ -82,8 +82,8 @@ class TodoService {
         if(err || !res.ok){
           
             if(res) { 
-              if(res.body) {console.log("ERRORS = " + JSON.stringify(res.body));}
-              if(res.body.message) AlertActions.displayMessage('warning', res.body.message); 
+              if(res.body) AlertActions.displayMessage('warning', res.body.message); 
+              else {console.log("ERRORS = " + JSON.stringify(res.body));}
             }
             else{ AlertActions.displayMessage('error', 'Can not create task at this time. Server might be down.');}
             return;
@@ -108,7 +108,7 @@ class TodoService {
     .end( (err, res) => {
         if(err || !res.ok){
             if(res) { 
-              if(res.body.message) AlertActions.displayMessage('warning', res.body.message);
+              if(res.body) AlertActions.displayMessage('warning', res.body.message);
             }
             else{ AlertActions.displayMessage('error', 'Can not create task at this time. Server might be down.');}
             return;
@@ -127,7 +127,7 @@ class TodoService {
     .end( (err, res) => {
         if(err || !res.ok){
             if(res) { 
-              if(res.body.message) AlertActions.displayMessage('warning', res.body.message); 
+              if(res.body) AlertActions.displayMessage('warning', res.body.message); 
             }
             else{ AlertActions.displayMessage('error', 'Can not create tag at this time. Server might be down.');}
             return;
@@ -151,7 +151,7 @@ class TodoService {
     .end( (err, res) => {
         if(err || !res.ok){
             if(res) { 
-              if(res.body.message) AlertActions.displayMessage('warning', res.body.message); 
+              if(res.body) AlertActions.displayMessage('warning', res.body.message); 
             }
             else{ AlertActions.displayMessage('error', 'Can not delete tag at this time. Server might be down.');}
             return;
